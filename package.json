@@ -1,0 +1,23 @@
+{
+  "name": "tamarillogames",
+  "version": "1.0.0",
+  "description": "Server that will handle logins for small game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r esm server.js",
+    "serve": "nodemon -r esm --inspect ./server.js "
+  },
+  "author": "Omar Leonardo Pino Reyes",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "firebase": "^7.20.0",
+    "firebase-tools": "^8.10.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7"
+  }
+}
