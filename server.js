@@ -27,9 +27,15 @@ class Server {
 
     run() {
 
-        this.api.set('port', PORT );
+        let portEnv = process.env.PORT;
+        if(portEnv == null || port == ""){
+
+            portEnv = PORT;
+        }
+        this.api.set('port', portEnv );
         this.listener = HTTP.createServer( this.api );
-        this.listener.listen( PORT );
+        
+        this.listener.listen( portEnv );
         this.listener.on('listening', event => {
 
             let addr = this.listener.address();
