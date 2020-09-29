@@ -28,7 +28,7 @@ class Server {
     run() {
 
         let portEnv = process.env.PORT;
-        if(portEnv == null || port == ""){
+        if(portEnv == null || portEnv == ""){
 
             portEnv = PORT;
         }
