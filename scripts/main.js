@@ -13,7 +13,7 @@ export default class MainApp {
     }
 
     getData() {
-        $.get('https://ltsonar-33e3d.firebaseio.com/users.json')
+        $.get('https://node-juego-lasante-default-rtdb.firebaseio.com/users.json')
         .then((data) => {
             this.userData = Object.values(data);
             this.generateMap();
@@ -29,6 +29,10 @@ export default class MainApp {
                             <tr>
                             <th scope="col">Usuario</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Ciudad</th>
+                            <th scope="col">Representante</th>
                             <th scope="col">Telefono</th>
                             </tr>
                         </thead>`;
@@ -38,6 +42,10 @@ export default class MainApp {
             tableMark += `<tr>`;
             tableMark += `<td>${this.userData[row].user}</td>`
             tableMark += `<td>${this.userData[row].email}</td>`
+            tableMark += `<td>${this.userData[row].name}</td>`
+            tableMark += `<td>${this.userData[row].lastName}</td>`
+            tableMark += `<td>${this.userData[row].city}</td>`
+            tableMark += `<td>${this.userData[row].representative}</td>`
             tableMark += `<td>${this.userData[row].phone}</td>`
             tableMark += `</tr>`;
         }
