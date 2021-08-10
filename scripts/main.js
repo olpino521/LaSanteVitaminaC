@@ -34,6 +34,7 @@ export default class MainApp {
                             <th scope="col">Ciudad</th>
                             <th scope="col">Representante</th>
                             <th scope="col">Telefono</th>
+                            <th scope="col">Puntaje</th>
                             </tr>
                         </thead>`;
         tableMark += `<tbody>`
@@ -47,6 +48,7 @@ export default class MainApp {
             tableMark += `<td>${this.userData[row].city}</td>`
             tableMark += `<td>${this.userData[row].representative}</td>`
             tableMark += `<td>${this.userData[row].phone}</td>`
+            tableMark += `<td>${this.userData[row].maxScore}</td>`
             tableMark += `</tr>`;
         }
         tableMark += `</tbody></table>`;
