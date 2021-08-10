@@ -13,7 +13,7 @@ export default class MainApp {
     }
 
     getData() {
-        $.get('https://node-juego-lasante-default-rtdb.firebaseio.com/users.json')
+        $.get('https://ltsonar-33e3d.firebaseio.com/users.json')
         .then((data) => {
             this.userData = Object.values(data);
             this.generateMap();
@@ -41,17 +41,24 @@ export default class MainApp {
         for (let row = 0; row < this.userData.length; row++) {
 
             tableMark += `<tr>`;
-            tableMark += `<td>${this.userData[row].user}</td>`
-            tableMark += `<td>${this.userData[row].email}</td>`
-            tableMark += `<td>${this.userData[row].name}</td>`
-            tableMark += `<td>${this.userData[row].lastName}</td>`
-            tableMark += `<td>${this.userData[row].city}</td>`
-            tableMark += `<td>${this.userData[row].representative}</td>`
-            tableMark += `<td>${this.userData[row].phone}</td>`
-            tableMark += `<td>${this.userData[row].maxScore}</td>`
+            tableMark += `<td>${this.replaceUndefined(this.userData[row].user)}</td>`
+            tableMark += `<td>${this.replaceUndefined(this.userData[row].email)}</td>`
+            tableMark += `<td>${this.replaceUndefined(this.userData[row].name)}</td>`
+            tableMark += `<td>${this.replaceUndefined(this.userData[row].lastName)}</td>`
+            tableMark += `<td>${this.replaceUndefined(this.userData[row].city)}</td>`
+            tableMark += `<td>${this.replaceUndefined(this.userData[row].representative)}</td>`
+            tableMark += `<td>${this.replaceUndefined(this.userData[row].phone)}</td>`
+            tableMark += `<td>${this.replaceUndefined(this.userData[row].maxScore)}</td>`
             tableMark += `</tr>`;
         }
         tableMark += `</tbody></table>`;
         $board.html(tableMark);
+    }
+
+    replaceUndefined(received){
+        if(received == undefined){
+            return "N/D";
+        }
+        else return received;
     }
 }
